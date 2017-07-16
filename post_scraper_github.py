@@ -248,7 +248,7 @@ if __name__ == "__main__":
 
     # If appending a previous run, use a tuple like the following:
     # append=('final/posts_2017-07-14 12_44_05_229587.p','final/comments_2017-07-14 12_44_05_229587.p')
-    df_posts, df_comments = scrape(FB_NEW, MAX_POSTS_PER, MAX_COMMENTS_PER, SLEEP_TIME_SECONDS, cache=True, append=None)
+    df_posts, df_comments = scrape(FB_PAGES, MAX_POSTS_PER, MAX_COMMENTS_PER, SLEEP_TIME_SECONDS, cache=True, append=None)
 
 
 

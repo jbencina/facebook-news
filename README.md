@@ -6,6 +6,9 @@ Dataset contains **19,850** posts from **83** various news organizations & perso
 You can alternatively access the data through BigQuery:
 https://bigquery.cloud.google.com/dataset/jbencina-144002:fb_news
 
+## Updates
+2019-11-21: Updated the comments data to obfuscate user id and user name with hashed values using Python's blake2b
+
 ## Files
 - post\_scraper\_github.py - script used to scrape pages
 - fb\_news_comments\_1000K.7z - comments file

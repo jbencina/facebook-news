@@ -7,13 +7,14 @@ You can alternatively access the data through BigQuery:
 https://bigquery.cloud.google.com/dataset/jbencina-144002:fb_news
 
 ## Updates
+2021-10-10: Updated reame
 2019-11-21: Updated the comments data to obfuscate user id and user name with hashed values using Python's blake2b
 
 ## Files
-- post\_scraper\_github.py - script used to scrape pages
-- fb\_news_comments\_1000K.7z - comments file
-- fb\_news\_posts\_20K.csv - posts file
-- fb\_news\_pagenames.csv - page names
+- post_scraper_github.py - script used to scrape pages
+- fb_news_comments_1000K.7z - comments file
+- fb_news_posts_20K.csv - posts file
+- fb_news_pagenames.csv - page names
 
 Apologizes for the 7Z format, but it compressed the best.
 
@@ -22,28 +23,33 @@ This script loops though a dictionary of Facebook page ids and retrieves the las
 
 While originally used for news sites, this script can accommodate any Facebook page. One could also loop though the comments to get more than the last 100.
 
+## Usage
+To join the two datasets, split the `post_id` and `post_name` fields from
+the Posts and Comments files respectively on underscore. The resulting ID
+allows for a clean join between both files.
+
 ## Fields - Posts
-- created\_time
+- created_time
 - description: only for posts with links
 - link
 - message: post contents
-- page\_id
-- post\_id
-- react\_angry
-- react\_haha
-- react\_like
-- react\_love
-- react\_sad
-- react\_wow
-- scrape\_time
+- page_id
+- post_id: two part identifier of [page_id]_[post_id]
+- react_angry
+- react_haha
+- react_like
+- react_love
+- react_sad
+- react_wow
+- scrape_time
 - shares
 
 ## Fields - Comments
 - created_time
-- from_id: user id
-- from_name: publicly visible name of poster
-- message
-- post\_id: parent post\_id
+- from_id: user id (obfuscated)
+- from_name: publicly visible user name (obfuscated)
+- message: text
+- post_name: two part identifier of [from_id]_[post_id]
 
 ## Pages Scraped
 May be subject to future additions.
